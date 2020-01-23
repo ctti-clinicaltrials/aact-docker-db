@@ -1,0 +1,19 @@
+#!/bin/bash
+
+FILE=https://aact.ctti-clinicaltrials.org/static/static_db_copies/daily/20200123_clinical_trials.zip
+
+
+# download file
+wget $FILE -o dump.zip
+
+
+#unzip the file
+unzip dump.zip
+
+
+# restore database
+pg_restore -U aact -d aact postgres_data.dmp
+
+
+
+#delete zip and sql files

@@ -11,3 +11,5 @@ services:
     environment:
       - POSTGRES_USER=aact
       - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./import:/usr/bin/import
