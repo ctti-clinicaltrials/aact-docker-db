@@ -1,10 +1,13 @@
-version: "3.3"
+version: "3"
 services:
   db:
+    image: aact
     build:
-      context: ./Docker
-      dockerfile: db.Dockerfile
-    volumes:
-      - ./var/pgdata:/var/lib/postgresql/data
+      context: .
+      dockerfile: Dockerfile
+    container_name: aact_db
     ports:
-      - "5432:5432"
+      - "6543:5432"
+    environment:
+      - POSTGRES_USER=aact
+      - POSTGRES_PASSWORD=postgres
