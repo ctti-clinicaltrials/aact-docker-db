@@ -37,5 +37,9 @@ https://docs.docker.com/compose/install/
     Example: `docker exec -it aact_db import https://aact.ctti-clinicaltrials.org/static/static_db_copies/daily/20200127_clinical_trials.zip`
 
 
-## Install PgAdmin
-* Open _pgAdmin_ tool on your browser.
+## Login to PgAdmin
+* Open _pgAdmin_ tool on your browser by entering the following url in the address bar:
+  - http://localhost:8000
+* Login to the pgAdmin tool using the following credentials:
+  - email: test@gmail.com
+  - password: 1234567
