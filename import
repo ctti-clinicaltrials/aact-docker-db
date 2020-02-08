@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# FILE="https://aact.ctti-clinicaltrials.org/static/static_db_copies/daily/20200127_clinical_trials.zip"
+
+echo "DOWNLOADING $1..."
+# download file
+wget $1 -O dump.zip
+
+
+#unzip the file
+unzip -o dump.zip
+
+dropdb -U aact aact_main
+
+createdb -U aact aact_main
+
+# restore database
+pg_restore -U aact -d aact_main postgres_data.dmp
+
+#delete zip and sql files
+rm data_dictionary.xlsx
+rm schema_diagram.png
+rm postgres_data.dmp
+rm nlm_protocol_definitions.html
+rm nlm_result_definitions.html
+rm dump.zip

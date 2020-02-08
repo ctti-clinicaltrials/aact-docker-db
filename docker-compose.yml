@@ -1,0 +1,23 @@
+version: "3"
+services:
+  db:
+    image: aact
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aact_db
+    ports:
+      - "6543:5432"
+    environment:
+      - POSTGRES_USER=aact
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./import:/usr/bin/import
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    ports:
+      - "8000:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=test@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=1234567
