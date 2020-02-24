@@ -30,16 +30,16 @@ https://docs.docker.com/compose/install/
 
 
 ## Import AACT database
-* You can find the list of _Downloadable File_ that contains AACT database files by clicking the following link: https://aact.ctti-clinicaltrials.org/snapshots. Copy the _link address_ of the zip file you want to import from the list (by right-clicking). Then, run -
+* You can find the list of _Downloadable File_ that contains AACT database files by clicking the following link: https://aact.ctti-clinicaltrials.org/snapshots. Copy the _link address_ of the zip file you want to import from the list by right-clicking. Then, run the following command:
 
   `docker exec -it aact_db import <link address>`
 
     Example: `docker exec -it aact_db import https://aact.ctti-clinicaltrials.org/static/static_db_copies/daily/20200127_clinical_trials.zip`
 
 
-## Login to PgAdmin
-* Open _pgAdmin_ tool on your browser by entering the following url in the address bar:
-  - http://localhost:8000
-* Login to the pgAdmin tool using the following credentials:
-  - email: test@gmail.com
-  - password: 1234567
+## Postgres Connection
+* Use the following information to connect to the docker Postgres database:
+  - HOST: `localhost`
+  - PORT: `6543`
+  - POSTGRES_USER: `aact`
+  - POSTGRES_PASSWORD: `postgres`
