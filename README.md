@@ -24,22 +24,28 @@ https://docs.docker.com/compose/install/
 
 
 ## Start Postgres
-* Pull the postgres image from hub.docker.com, create a container named _aact_db_, and start it in the background by using following command.
+* First, open a terminal session
+  - On a PC, press `[CTRL]` `[R]`. Search bar pops up. Type `cmd` and press ENTER.
+  - On a Mac, press `[command]` `[spacebar]`. _Spotlight Search_ dialog pops up. Type `terminal` and press ENTER
+
+* Run the following command to start Postgres. It simply pulls the postgres image from _hub.docker.com_, creates a container named _aact_db_, and starts it in the background.
 
     `docker-compose up`
 
+    NOTE: Let the docker container run in the background; you do not want to stop it or exit the terminal. You have to open a different terminal to run the following commands.
 
 ## Import AACT database
-* You can find the list of _Downloadable File_ that contains AACT database files by clicking the following link: https://aact.ctti-clinicaltrials.org/snapshots. Copy the _link address_ of the zip file you want to import from the list by right-clicking. Then, run the following command:
+* You can find the list of _Downloadable File_ that contains AACT database files by clicking the following link: https://aact.ctti-clinicaltrials.org/snapshots.
+* Copy the _link address_ of the zip file you want to import from the above list by right-clicking. Then, run the following command in a separate terminal window:
 
-  `docker exec -it aact_db import <link address>`
+  `docker exec -it aact_db import <link-address>`
 
     Example: `docker exec -it aact_db import https://aact.ctti-clinicaltrials.org/static/static_db_copies/daily/20200127_clinical_trials.zip`
 
 
 ## Postgres Connection
-* Use the following information to connect to the docker Postgres database:
-  - HOST: `localhost`
-  - PORT: `6543`
+* Use the following information to connect to the Postgres database:
+  - host: `localhost`
+  - port: `6543`
   - POSTGRES_USER: `aact`
   - POSTGRES_PASSWORD: `postgres`
